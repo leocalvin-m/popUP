@@ -87,12 +87,16 @@ body{
     background-color:rgba(0, 0, 0, 0.294);
     filter: blur(10rem);
 }
+.text-input{
+    text-align: center;
+}
 
 
 .name{
     border-radius: 10rem;
     box-shadow: 0 0.35rem 5rem rgba(0, 0,0,0.2);
     padding:  0.5rem 0.75rem;
+    width: 20rem;
 }
 
 .main{
