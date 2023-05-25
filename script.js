@@ -1,28 +1,30 @@
-const btn = document.querySelector('.btn');
-const overlay = document.querySelector('.overlay');
-const popup = document.querySelector('.popup');
-const cross = document.querySelector('.cross');
-const firstName = document.querySelector('.name');
-const maincontent = document.querySelector('.main');
+const btn = document.querySelector(".btn");
+const overlay = document.querySelector(".overlay");
+const cross = document.querySelector(".cross");
+const modal = document.querySelector(".modal");
 
-btn.addEventListener('click', function () {
+const showModal = function(){
+    btn.classList.add("btn-animate");
+    setTimeout(()=> {
+        overlay.classList.remove("hide");
+        modal.classList.remove("hide");
+    },170)
     
-    if (firstName.value !== "") {
-        
-        
-        overlay.classList.toggle('hidden');
-        popup.classList.toggle('hidden');
-        maincontent.textContent = `Hey ${firstName.value}`;
+}
+const closeModal = function(){
+    btn.classList.remove("btn-animate");
+    overlay.classList.add("hide");
+    modal.classList.add("hide");
+}
+
+btn.addEventListener('click', showModal);
+overlay.addEventListener('click',closeModal);
+cross.addEventListener('click',closeModal);
+
+
+document.addEventListener('keydown',function(e){
+    if(!modal.classList.contains("hide") && e.key === "Escape"){
+        closeModal();
     }
-    
+})
 
-
-});
-cross.addEventListener('click',function(){
-
-    overlay.classList.toggle('hidden')
-    popup.classList.toggle('hidden')
-    
-
-
-});
